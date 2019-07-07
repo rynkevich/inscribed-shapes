@@ -37,8 +37,9 @@ def main():
             if event.type == sdl2.SDL_QUIT:
                 running = False
                 break
-        renderer.clear(COLOR_WHITE)
-        shape.draw(renderer, DEFAULT_WINDOW_SIZE, window.size)
+            elif event.type == sdl2.SDL_WINDOWEVENT:
+                renderer.clear(COLOR_WHITE)
+                shape.draw(renderer, DEFAULT_WINDOW_SIZE, window.size)
 
     sdl2.ext.quit()
     return 0
