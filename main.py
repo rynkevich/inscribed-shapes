@@ -4,6 +4,7 @@ from math import pi
 import sdl2
 import sdl2.ext
 
+from cartesian_renderer import CartesianRenderer
 from inscribed_shape import InscribedShape
 
 DEFAULT_WINDOW_SIZE = (420, 420)
@@ -28,7 +29,7 @@ def main():
     sdl2.SDL_SetWindowMinimumSize(window.window, DEFAULT_WINDOW_SIZE[0] // 2, DEFAULT_WINDOW_SIZE[1] // 2)
     window.show()
 
-    renderer = sdl2.ext.Renderer(window)
+    renderer = CartesianRenderer(window)
 
     running = True
     while running:
@@ -39,7 +40,8 @@ def main():
                 break
             elif event.type == sdl2.SDL_WINDOWEVENT:
                 renderer.clear(COLOR_WHITE)
-                shape.draw(renderer, DEFAULT_WINDOW_SIZE, window.size)
+                shape.draw(renderer)
+                renderer.present()
 
     sdl2.ext.quit()
     return 0
