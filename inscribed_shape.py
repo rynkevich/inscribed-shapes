@@ -53,6 +53,6 @@ class InscribedShape:
         x, y = point
         x_scaling_coeff, y_scaling_coeff = tuple(map(truediv, actual_window_size, default_window_size))
         max_y = actual_window_size[1]
-        x = trunc(x * x_scaling_coeff) + default_window_size[0] // 2
-        y = max_y - (trunc(y * y_scaling_coeff) + default_window_size[1] // 2)
+        x = trunc(x * x_scaling_coeff) + actual_window_size[0] // 2
+        y = max_y - (trunc(y * y_scaling_coeff) + actual_window_size[1] // 2)
         return x, y
